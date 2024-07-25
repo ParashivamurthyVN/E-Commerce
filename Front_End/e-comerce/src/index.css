@@ -1,0 +1,120 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #151717;
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(114, 113, 113);
+  border-radius: 10px;
+  height: 200px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* .app{
+  background-color: rgb(232 232 232 / 1 ) !important;
+} */
+
+.category-btn:hover {
+  /* background-color: #FC1503 !important; */
+  color: #2d79f3 !important;
+}
+
+
+.search-bar{
+  border:none;
+  outline:none;
+  width:350px;
+}
+
+.category-btn{
+  font-weight: bold !important;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  cursor:pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+
+  padding: 7px 15px;
+  margin: 10px 0px;
+  /* border-radius: 20px; */
+  transition: all 0.3s ease;
+}
+
+.cardtitle{
+  overflow: clip;
+ 
+  text-transform: capitalize;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #ffffff;
+  padding: 10px 30px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form span{
+  display: block;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.form input, textarea{
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #ecedec;
+  transition: 0.2s ease-in-out;
+  height: 100%;
+}
+
+.form input:focus, textarea:focus {
+  outline: none;
+}
+
+.form input:focus-within, textarea:focus-within {
+  border: 1.5px solid #2d79f3;
+}
+
+.cardItem:hover{
+  box-shadow: 15px 15px 30px #bebebe,
+  -15px -15px 30px #ffffff;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
