@@ -42,6 +42,7 @@ app.post("/orders", async (req, res) => {
        res.status(500).json({ error: err });
     })
    });
+   
    app.get("/search/:searchterm", async (req, res) => {
       const items = [];
       const term = req.params.searchterm;

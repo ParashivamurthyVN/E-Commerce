@@ -38,7 +38,7 @@ const addorder= async (url, newItem)=>{
   //page refresh
 }
 
-//onclick not a function error
+
 async function  handleSubmit(event){
     event.preventDefault();
     await addorder('/orders', Order); 

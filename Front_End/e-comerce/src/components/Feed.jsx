@@ -4,14 +4,15 @@ import { Box, Stack, Typography } from '@mui/material';
 import { fetchAPI } from '../utils/fetchAPI';
 
 
-const Feed =({categorySelected}) =>{
+const Feed =({categorySelected, addItemToCart}) =>{
+
  
   const[items, setItems]=useState([]);
 
    useEffect(()=>{
       fetchAPI(`search/${categorySelected}`).then((data)=> setItems(data));
     }, [categorySelected])
-    console.log(items)
+    // console.log(items)
 
      if(!items?.length) return 'Loading....'
  
@@ -22,9 +23,8 @@ return(
 <Typography  variant='h6' fontWeight='bold' mb='3px' mt='8px'>
         CATEGORY:  <span style={{color:'#2d79f3'}}>{categorySelected} </span>
 </Typography>
-   <Items items={items}/>
+<Items addItemToCart={addItemToCart} items={items} />
 </Box>
-
 </Stack>
 
 )};
