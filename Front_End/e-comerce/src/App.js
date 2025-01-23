@@ -10,10 +10,7 @@ import Cart from './components/cart';
 
 const App =() =>{
   const [categorySelected, setcategorySelected] = useState('NEW');
-  const [cartItem, setCartItem] = useState([]);
-  const addItemToCart = (newItem) => {
-    setCartItem((prevItems) => [...prevItems, newItem]);
-  };
+ 
 
   return (
 <BrowserRouter>
@@ -21,10 +18,10 @@ const App =() =>{
 <Navbar categorySelected={categorySelected} 
       setcategorySelected={setcategorySelected} />
 <Routes>
-  <Route path="/" exact element={<Feed categorySelected={categorySelected} addItemToCart={addItemToCart}/>}/>
+  <Route path="/" exact element={<Feed categorySelected={categorySelected}/>}/>
   <Route path='/items/:id' element={<ItemDetail />}/>
-  <Route path='/search/:searchterm' element={<SearchFeed addItemToCart={addItemToCart}/>}/>
-  <Route path='/cart' element={<Cart cartItem={cartItem} setCartItem={setCartItem}/>}/>
+  <Route path='/search/:searchterm' element={<SearchFeed/>}/>
+  <Route path='/cart' element={<Cart/>}/>
 </Routes>
 </Box>
 </BrowserRouter>

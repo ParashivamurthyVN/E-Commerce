@@ -1,9 +1,15 @@
 import React from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import {  Typography, CardMedia, CardContent, Stack, IconButton } from '@mui/material';
+import {remove} from '../cartItem';
+import { useDispatch } from 'react-redux';
 
-function CartCard({item, handleDelete}) {
-
+function CartCard({item}) {
+  let dispatch=useDispatch()
+function handleDelete(idToDelete){
+  dispatch(remove(idToDelete));
+  // setCartItem(cartItem.filter((item)=>item._id !== idToDelete))
+};
 
   return (
       <CardContent className='cardItem' sx={{ p:'4px !important', ml:'10%', width:'80%' }}>

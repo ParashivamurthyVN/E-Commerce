@@ -2,22 +2,27 @@ import React, { useState, useEffect } from 'react'
 import CartCard from './cartCard';
 import { Typography, Box, Stack, Button } from '@mui/material';
 import {useNavigate} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { empty} from '../cartItem';
 
-function Cart({cartItem, setCartItem}) {
+
+function Cart() {
+let cartItems=useSelector(state=>state.cartItems.value);
 const [total, setTotal]=useState()
 const navigate=useNavigate();
+let dispatch=useDispatch()
 const [cartOrder, setCartOrder] = useState({
   Name:"",
   Address:"",
   ContactNumber:"",
   PIN:"",
-  Items:cartItem
+  Items:cartItems
 });
 
 useEffect(()=>{
-  setTotal( cartItem.reduce((accumulator, item) => accumulator + item.content.Price, 0)
+  setTotal( cartItems.reduce((accumulator, item) => accumulator + item.content.Price, 0)
 );
-}, [cartItem])
+}, [cartItems])
 
 const addorder= async (url, newItem)=>{
   await fetch(url, {
@@ -39,13 +44,10 @@ async function  handleSubmit(event){
   await addorder('/orders', cartOrder); 
   //order confirmation
   alert("your order has been placed... please continue shopping");
-  setCartItem([]);
+  dispatch(empty());
+  // setCartItem([]);
   navigate('/');
 }
-
-function handleDelete(idToDelete){
-  setCartItem(cartItem.filter((item)=>item._id !== idToDelete))
-};
 
 function handleChange(event){
   const { name, value } = event.target;
@@ -58,7 +60,7 @@ function handleChange(event){
   });
 }
 
-if(cartItem.length===0) return 'Cart is empty'
+if(cartItems.length===0) return 'Cart is empty'
   return (
       <Stack direction='row' >
          <Box  flexBasis='50%' sx={{display:'flex', 
@@ -68,9 +70,9 @@ if(cartItem.length===0) return 'Cart is empty'
 <Typography  variant='h6' fontWeight='bold' my='10px'>
 CART
 </Typography>
- {cartItem.map((item, idx)=>(
+ {cartItems.map((item, idx)=>(
         <Box key={idx}>
-        <CartCard item={item} handleDelete={handleDelete}/>
+        <CartCard item={item}/>
         </Box>
     ))}
 <Box sx={ {ml:'30px', mt:'30px' }}>

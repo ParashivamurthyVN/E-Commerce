@@ -1,8 +1,12 @@
 import React from 'react'
 import {  Typography, CardMedia, CardContent, Box, Stack, Button } from '@mui/material';
 import { Link} from 'react-router-dom';
+import {add} from '../cartItem';
+import {useDispatch} from 'react-redux';
 
-function ItemCard({item, addItemToCart}) {
+
+function ItemCard({item}) {
+  let dispatch=useDispatch()
   return (
     <Box className='cardItem' sx={{display:'flex',
       alignItems:'center',
@@ -28,7 +32,7 @@ function ItemCard({item, addItemToCart}) {
               <span >Rs. {parseInt(item?.content?.Price).toLocaleString()}</span> 
              </Typography>
              {/* setcartItem */}
-             <Button variant="contained" onClick={()=>addItemToCart(item)} sx={{background:'#2d79f3', fontSize:'0.7rem'}}>Add to cart</Button>
+             <Button variant="contained" onClick={()=>dispatch(add(item))} sx={{background:'#2d79f3', fontSize:'0.7rem'}}>Add to cart</Button>
              </Stack>
          </Box>
       </CardContent>

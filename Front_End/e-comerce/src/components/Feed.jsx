@@ -4,7 +4,7 @@ import { Box, Stack, Typography } from '@mui/material';
 import { fetchAPI } from '../utils/fetchAPI';
 
 
-const Feed =({categorySelected, addItemToCart}) =>{
+const Feed =({categorySelected}) =>{
 
  
   const[items, setItems]=useState([]);
@@ -23,7 +23,7 @@ return(
 <Typography  variant='h6' fontWeight='bold' mb='3px' mt='8px'>
         CATEGORY:  <span style={{color:'#2d79f3'}}>{categorySelected} </span>
 </Typography>
-<Items addItemToCart={addItemToCart} items={items} />
+<Items items={items} />
 </Box>
 </Stack>
 
